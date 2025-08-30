@@ -1,0 +1,2 @@
+langchain
+lagnchain_core
