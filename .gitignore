@@ -8,6 +8,7 @@ wheels/
 env
 .env
 .env.copy
+logs
 
 # Virtual environments
 .venv
