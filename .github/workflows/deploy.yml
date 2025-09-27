@@ -28,8 +28,7 @@ jobs:
             --stack-name product-assistant-cluster \
             --template-file infra/eks-with-ecr.yaml \
             --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM \
-            --region ${{ secrets.AWS_REGION }} \
-            --no-fail-on-empty-changeset
+            --region ${{ secrets.AWS_REGION }}
 
 
       # Login to ECR
