@@ -124,17 +124,15 @@ Resources:
             Principal:
               Service: eks.amazonaws.com
             Action: sts:AssumeRole
-      Path: /
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
-        - arn:aws:iam::aws:policy/AmazonEKSVPCResourceController
-
+    
   ### --- EKS Cluster ---
   EKSCluster:
     Type: AWS::EKS::Cluster
     Properties:
-      Name: !Ref ClusterName
-      RoleArn: !Ref EKSClusterRole
+      Name: product-assistant-cluster-latest
+      RoleArn: arn:aws:iam::741463796615:role/EKSServiceRole
       ResourcesVpcConfig:
         SubnetIds:
           - !Ref PublicSubnet1
