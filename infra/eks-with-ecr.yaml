@@ -127,13 +127,14 @@ Resources:
       Path: /
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
+        - arn:aws:iam::aws:policy/AmazonEKSVPCResourceController
 
   ### --- EKS Cluster ---
   EKSCluster:
     Type: AWS::EKS::Cluster
     Properties:
       Name: !Ref ClusterName
-      RoleArn: !GetAtt EKSClusterRole.Arn  # This also returns the Role ARN for AWS::IAM::Role
+      RoleArn: !Ref EKSClusterRole
       ResourcesVpcConfig:
         SubnetIds:
           - !Ref PublicSubnet1
