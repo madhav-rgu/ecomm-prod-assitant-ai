@@ -124,6 +124,7 @@ Resources:
             Principal:
               Service: eks.amazonaws.com
             Action: sts:AssumeRole
+      Path: /
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
 
@@ -132,7 +133,7 @@ Resources:
     Type: AWS::EKS::Cluster
     Properties:
       Name: !Ref ClusterName
-      RoleArn: !Ref EKSClusterRole # This also returns the Role ARN for AWS::IAM::Role
+      RoleArn: !GetAtt EKSClusterRole.Arn  # This also returns the Role ARN for AWS::IAM::Role
       ResourcesVpcConfig:
         SubnetIds:
           - !Ref PublicSubnet1
